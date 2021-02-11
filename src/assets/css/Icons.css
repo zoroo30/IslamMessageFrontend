@@ -1,0 +1,27 @@
+.islamic-centers-icon {
+  background-image: url(../icons/Islamic\ centers.svg);
+}
+
+.events-icon {
+  background-image: url(../icons/events.svg);
+}
+
+.news-icon {
+  background-image: url(../icons/news.svg);
+}
+
+.islamic-centers-icon,
+.events-icon,
+.news-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+.menu-item-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}

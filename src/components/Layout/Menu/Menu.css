@@ -1,0 +1,16 @@
+.custom-nav .bg-dark {
+  background: #37b34a !important;
+}
+
+.custom-nav .justify-content-center {
+  background: #fff;
+  border-bottom: 1px solid #dedede;
+}
+
+.menu-item {
+  border-right: 1px solid #dedede;
+}
+
+.menu-item:last-child {
+  border-right: 0;
+}
