@@ -1,0 +1,42 @@
+/* body {
+    min-height: 1000px;
+} */
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+.breadcrumb-item.active,
+.breadcrumb-item a {
+  color: #777;
+}
+
+.breadcrumb-item.active {
+  font-weight: 700;
+}
+.breadcrumb-item.active::before {
+  font-weight: 400;
+}
+
+/* Search pages header */
+.search-page-header {
+  background-image: url("../../assets/logo/logo-gray.png");
+  background-repeat: no-repeat;
+  background-position: -120px 30px;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #dedede;
+  padding: 40px 0 20px;
+  margin-bottom: 20px;
+}
+
+h1.page-big-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #777;
+  margin: 0;
+  margin-top: 75px;
+}

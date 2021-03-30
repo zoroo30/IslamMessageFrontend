@@ -38,7 +38,7 @@ function Footer() {
                   iconClass="islamic-centers-icon"
                   path="islamic_centers"
                   title="Islamic Centers"
-                  subtitle="adfsasdfasdf"
+                  subtitle="There are many variations."
                 />
               </li>
               <li>
@@ -46,7 +46,7 @@ function Footer() {
                   iconClass="events-icon"
                   path="events"
                   title="Events"
-                  subtitle="adfsasdfasdf"
+                  subtitle="There are many very passages."
                 />
               </li>
               <li>
@@ -54,7 +54,7 @@ function Footer() {
                   iconClass="news-icon"
                   path="news"
                   title="News"
-                  subtitle="adfsasdfasdf"
+                  subtitle="There are many variations of passages."
                 />
               </li>
             </ul>
@@ -81,7 +81,7 @@ function FooterLink({ iconClass, path, title, subtitle }) {
   return (
     <Link className="footer-link" to={`/${path}`}>
       {iconClass && <div className={`menu-item-icon ${iconClass}`}></div>}
-      <div>
+      <div className="text">
         {title && <span className="title">{title}</span>}
         {subtitle && <span className="subtitle">{subtitle}</span>}
       </div>

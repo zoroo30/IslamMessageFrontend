@@ -6,7 +6,7 @@
 .footer .title-small {
   font-weight: 700;
   color: #37b34a;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .footer a,
@@ -14,6 +14,10 @@
   font-size: 14px;
   font-weight: 700;
   color: #777777;
+}
+
+.footer a:hover {
+  color: #000;
 }
 
 .footer p {
@@ -24,9 +28,10 @@
   padding: 10px 0;
 }
 
-.footer .footer-link div {
+.footer .footer-link div.text {
   display: inline-block;
   vertical-align: middle;
+  width: 75%;
 }
 
 .footer .footer-link div span {
@@ -39,8 +44,28 @@
 
 .footer ul.site-map .footer-link .subtitle {
   color: #777;
+  font-size: 12px;
 }
 
 .footer i {
-  font-size: 32px;
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.footer i.fa-facebook-square:hover {
+  color: #1877f2;
+}
+
+.footer i.fa-twitter-square:hover {
+  color: #1da1f2;
+}
+
+@media (min-width: 992px) {
+  .footer .title-small {
+    padding: 20px 0;
+  }
+
+  .footer i {
+    font-size: 32px;
+  }
 }
