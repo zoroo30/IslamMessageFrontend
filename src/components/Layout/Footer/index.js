@@ -10,7 +10,7 @@ function Footer() {
       <Container>
         <Row>
           <Col lg={{ order: 3 }} md={5} sm={{ span: 5, order: 2 }}>
-            <ul className="site-map">
+            <ul className="About list-unstyled">
               <h6 className="title-small">About</h6>
               <li>
                 <FooterLink path="about_us" title="About us" />
@@ -21,38 +21,24 @@ function Footer() {
                   title="Terms and conditions"
                 />
               </li>
+              <SocialNetworks className="d-lg-none" />
             </ul>
           </Col>
           <Col className="d-none d-lg-block" lg={{ order: 4 }}>
             <div className={`social-media-area`}>
               <h6 className="title-small">Social media</h6>
-              <div>
-                <a
-                  href="https://www.facebook.com"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <i className="fab fa-facebook-square"></i>
-                </a>
-                <a
-                  href="https://www.twitter.com"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <i className="fab fa-twitter-square"></i>
-                </a>
-              </div>
+              <SocialNetworks />
             </div>
           </Col>
           <Col lg={{ order: 2 }} md={6} sm={{ order: 1 }}>
-            {/* <SiteMap /> */}
-            <ul className="site-map">
-              <h6 className="title-small">Sitemap</h6>
+            <ul className="site-map list-unstyled">
+              <h6 className="title-small">Services</h6>
               <li>
                 <FooterLink
                   iconClass="islamic-centers-icon"
                   path="islamic_centers"
                   title="Islamic Centers"
+                  subtitle="adfsasdfasdf"
                 />
               </li>
               <li>
@@ -60,16 +46,20 @@ function Footer() {
                   iconClass="events-icon"
                   path="events"
                   title="Events"
+                  subtitle="adfsasdfasdf"
                 />
               </li>
               <li>
-                <FooterLink iconClass="news-icon" path="news" title="News" />
+                <FooterLink
+                  iconClass="news-icon"
+                  path="news"
+                  title="News"
+                  subtitle="adfsasdfasdf"
+                />
               </li>
             </ul>
           </Col>
           <Col lg={{ span: 4, order: 1 }} sm={{ span: 12, order: 3 }}>
-            {/* <LogoArea /> */}
-            {/* <h1>logo</h1> */}
             <div className="logo-area">
               <Link to="/">
                 <img src={Logo} alt="Islam Message Logo" />
@@ -87,12 +77,36 @@ function Footer() {
   );
 }
 
-function FooterLink({ iconClass, path, title }) {
+function FooterLink({ iconClass, path, title, subtitle }) {
   return (
     <Link className="footer-link" to={`/${path}`}>
       {iconClass && <div className={`menu-item-icon ${iconClass}`}></div>}
-      {title}
+      <div>
+        {title && <span className="title">{title}</span>}
+        {subtitle && <span className="subtitle">{subtitle}</span>}
+      </div>
     </Link>
+  );
+}
+
+function SocialNetworks({ className }) {
+  return (
+    <div className={className}>
+      <a
+        href="https://www.facebook.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <i className="fab fa-facebook-square mr-1"></i>
+      </a>
+      <a
+        href="https://www.twitter.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <i className="fab fa-twitter-square"></i>
+      </a>
+    </div>
   );
 }
 

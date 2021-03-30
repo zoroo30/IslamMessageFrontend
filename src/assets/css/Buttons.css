@@ -1,0 +1,10 @@
+.btn {
+  border-width: 3px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.btn-light {
+  color: #37b34a;
+}
