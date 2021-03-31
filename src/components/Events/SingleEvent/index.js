@@ -1,10 +1,15 @@
+import { Container } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { LoadingError } from "../../Errors";
+import ImageHeader from "../../Headers/ImageHeader";
+import Loading from "../../Loading";
 import Map from "../../Map";
+import "../../../assets/css/text.css";
 
 const getEventById = async (id) => {
   const res = await fetch(
-    `${process.env.REACT_APP_DEV_API}/api/v1/events/${id}`
+    `${process.env.REACT_APP_API_ENDPOINT}/api/v1/events/${id}`
   );
   const data = await res.json();
   return data.data;
@@ -21,8 +26,8 @@ export default function SingleEvent({ match }) {
   const id = match.params.id;
   const { isLoading, isError, data, error } = useEvent(id);
 
-  if (isLoading) return <span>Loading...</span>;
-  if (isError) return <span>Error: {error.message}</span>;
+  if (isLoading) return <Loading />;
+  if (isError) return <LoadingError error={error.message} />;
   console.log(data);
 
   const {
@@ -38,22 +43,44 @@ export default function SingleEvent({ match }) {
 
   return (
     <>
-      <img
-        src={`${process.env.REACT_APP_DEV_API}/${imageFileName}`}
-        alt={title}
+      <ImageHeader
+        address={[
+          {
+            title: "Home",
+            linkTo: "/",
+          },
+          {
+            title: "Events",
+            linkTo: "/events",
+          },
+        ]}
+        title={title}
+        imgPath={`${process.env.REACT_APP_API_ENDPOINT}/${imageFileName}`}
       />
-      <span>{dateTime}</span>
-      <h1>{title}</h1>
-      <div>
-        <p>{overview}</p>
-      </div>
-      <h1>Location</h1>
-      {address && <span>address:{address}</span>}
-      islamic center:{" "}
-      <Link to={`/islamic_centers/${islamicCenter.id}`}>
-        {islamicCenter.nameEn}
-      </Link>
-      <Map lat={lat} lng={lng} />
+      <Container>
+        <span className="font-weight-bold color-green">{dateTime}</span>
+        <h2 className="font-weight-bold">{title}</h2>
+        <h4 className="font-weight-bold">Overview</h4>
+        <p className="color-gray">{overview}</p>
+        <h4 className="font-weight-bold">Location</h4>
+        {address && (
+          <span className="color-gray">
+            <strong>Address: </strong>
+            {address}
+          </span>
+        )}
+        {islamicCenter && (
+          <>
+            <strong className="color-gray">islamic center: </strong>
+            <Link to={`/islamic_centers/${islamicCenter.id}`}>
+              {islamicCenter.nameEn}
+            </Link>
+          </>
+        )}
+        <div className="mt-3 mb-3">
+          <Map lat={lat} lng={lng} />
+        </div>
+      </Container>
     </>
   );
 }

@@ -1,8 +1,13 @@
+import { Container } from "react-bootstrap";
 import { useQuery } from "react-query";
+import { LoadingError } from "../../Errors";
+import ImageHeader from "../../Headers/ImageHeader";
+import Loading from "../../Loading";
+import "../../../assets/css/text.css";
 
 const getArticleById = async (id) => {
   const res = await fetch(
-    `${process.env.REACT_APP_DEV_API}/api/v1/articles/${id}`
+    `${process.env.REACT_APP_API_ENDPOINT}/api/v1/articles/${id}`
   );
   const data = await res.json();
   return data.data;
@@ -19,21 +24,31 @@ export default function SingleArticle({ match }) {
   const id = match.params.id;
   const { isLoading, isError, data, error } = useArticle(id);
 
-  if (isLoading) return <span>Loading...</span>;
-  if (isError) return <span>Error: {error.message}</span>;
-  console.log(data);
+  if (isLoading) return <Loading />;
+  if (isError) return <LoadingError error={error.message} />;
+
   const { imageFileName, title, content } = data;
 
   return (
     <>
-      <img
-        src={`${process.env.REACT_APP_DEV_API}/${imageFileName}`}
-        alt={title}
+      <ImageHeader
+        address={[
+          {
+            title: "Home",
+            linkTo: "/",
+          },
+          {
+            title: "News",
+            linkTo: "/News",
+          },
+        ]}
+        title={title}
+        imgPath={`${process.env.REACT_APP_API_ENDPOINT}/${imageFileName}`}
       />
-      <h1>{title}</h1>
-      <div>
-        <p>{content}</p>
-      </div>
+      <Container>
+        <h2 className="mt-3 font-weight-bold">{title}</h2>
+        <p className="color-gray">{content}</p>
+      </Container>
     </>
   );
 }

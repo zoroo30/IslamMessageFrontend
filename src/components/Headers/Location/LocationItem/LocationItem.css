@@ -1,0 +1,12 @@
+/* Location Item */
+.breadcrumb-item.active,
+.breadcrumb-item a {
+  color: #777;
+}
+
+.breadcrumb-item.active {
+  font-weight: 700;
+}
+.breadcrumb-item.active::before {
+  font-weight: 400;
+}

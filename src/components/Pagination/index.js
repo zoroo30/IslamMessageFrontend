@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./Pagination.css";
 
 const LEFT_PAGE = "LEFT";
 const RIGHT_PAGE = "RIGHT";

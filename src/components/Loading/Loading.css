@@ -1,0 +1,11 @@
+.spinner-container {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.spinner-container h2 {
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 15px;
+  color: #777;
+}

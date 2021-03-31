@@ -1,0 +1,14 @@
+.error {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.error h1,
+.error h2,
+.error h3,
+.error h4,
+.error h5,
+.error h6 {
+  font-weight: 700;
+  color: #777;
+}

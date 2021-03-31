@@ -6,10 +6,11 @@ import "./App.css";
 import Events from "../Events";
 import IslamicCenters from "../IslamicCenters";
 import Articles from "../Articles";
-import HomeHeader from "../HomeHeader";
+import HomeHeader from "../Headers/HomeHeader";
 import SingleArticle from "../Articles/SingleArticle";
 import SingleEvent from "../Events/SingleEvent";
 import SingleIslamicCenter from "../IslamicCenters/SingleIslamicCenter";
+import { Error404 } from "../Errors";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,12 +35,8 @@ function App() {
             <Route path="/events" component={Events} />
             <Route path="/news/:id" component={SingleArticle} />
             <Route path="/news" component={Articles} />
-            <Route exact path="/">
-              <HomeHeader />
-            </Route>
-            <Route>
-              <h1>404</h1>
-            </Route>
+            <Route exact path="/" component={HomeHeader} />
+            <Route component={Error404} />
           </Switch>
         </Layout>
       </BrowserRouter>

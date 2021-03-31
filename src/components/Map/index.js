@@ -3,7 +3,7 @@ import { useState } from "react";
 import MapGL, { Marker } from "react-map-gl";
 
 export default function Map({ lng, lat }) {
-  const [viewport, setViewport] = React.useState({
+  const [viewport, setViewport] = useState({
     longitude: lng,
     latitude: lat,
     zoom: 14,
@@ -12,7 +12,7 @@ export default function Map({ lng, lat }) {
   return (
     <MapGL
       {...viewport}
-      width="500px"
+      width="100%"
       height="200px"
       onViewportChange={setViewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

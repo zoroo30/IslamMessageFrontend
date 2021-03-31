@@ -23,6 +23,10 @@
   padding-bottom: 5px;
 }
 
+.custom-nav .navbar-brand img {
+  max-width: 100%;
+}
+
 /* .navbar-collapse {
   position: absolute;
   width: 100%;

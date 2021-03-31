@@ -60,6 +60,10 @@
   color: #1da1f2;
 }
 
+.logo-area img {
+  max-width: 100%;
+}
+
 @media (min-width: 992px) {
   .footer .title-small {
     padding: 20px 0;

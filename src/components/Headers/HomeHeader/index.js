@@ -1,4 +1,4 @@
-import "../../assets/css/backgrounds.css";
+import "../../../assets/css/backgrounds.css";
 
 export default function HomeHeader() {
   return (

@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import Pagination from "../Pagination";
 import CardItem from "../Card";
-import SearchPageHeader from "../SearchPageHeader";
+import SearchPageHeader from "../Headers/SearchPageHeader";
 import { Container } from "react-bootstrap";
+import Loading from "../Loading";
+import { LoadingError } from "../Errors";
 
 const fetchIslamicCenters = async (currentPage = 1) => {
   const res = await fetch(
-    `${process.env.REACT_APP_DEV_API}/api/v1/islamiccenters?pageIndex=${currentPage}&pageSize=6`
+    `${process.env.REACT_APP_API_ENDPOINT}/api/v1/islamiccenters?pageIndex=${currentPage}&pageSize=6`
   );
   const data = await res.json();
   return data.data;
@@ -33,9 +35,6 @@ export default function IslamicCenters() {
     { keepPreviousData: true }
   );
 
-  if (isLoading) return <span>Loading...</span>;
-  if (isError) return <span>Error: {error.message}</span>;
-
   const onPageChanged = (currentPage) => {
     setCurrentPage(currentPage);
   };
@@ -44,22 +43,31 @@ export default function IslamicCenters() {
     <>
       <SearchPageHeader pageDetails={pageDetails} />
       <Container>
-        <div className="row">
-          {data.items.map((item) => (
-            <CardItem
-              key={item.id}
-              img={item.image}
-              title={item.title}
-              subtitle={`${item.city}, ${item.country}`}
-              to={`/islamic_centers/${item.id}`}
+        {isLoading ? (
+          <Loading />
+        ) : isError ? (
+          <LoadingError error={error.message} />
+        ) : (
+          <>
+            <div className="row">
+              {data.items.map((item) => (
+                <CardItem
+                  key={item.id}
+                  img={item.image}
+                  title={item.title}
+                  subtitle={`${item.city}, ${item.country}`}
+                  to={`/islamic_centers/${item.id}`}
+                  link="More details"
+                />
+              ))}
+            </div>
+            <Pagination
+              totalPages={data.totalPages}
+              pageNeighbours={1}
+              onPageChanged={onPageChanged}
             />
-          ))}
-        </div>
-        <Pagination
-          totalPages={data.totalPages}
-          pageNeighbours={1}
-          onPageChanged={onPageChanged}
-        />
+          </>
+        )}
       </Container>
     </>
   );
