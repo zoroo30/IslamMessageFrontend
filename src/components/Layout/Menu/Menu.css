@@ -27,11 +27,13 @@
   max-width: 100%;
 }
 
-/* .navbar-collapse {
-  position: absolute;
+.navbar-collapse {
   width: 100%;
-  top: 82px;
-} */
+
+  /* don't push content */
+  /* position: absolute;
+  top: 82px; */
+}
 
 .navbar-toggler {
   padding: 0;
@@ -47,6 +49,10 @@
     position: unset;
     top: 0;
   }
+
+  .custom-nav .navbar.navbar-expand-sm {
+    flex-flow: column;
+  }
 }
 
 @media (min-width: 768px) {
@@ -57,7 +63,8 @@
 
 @media (min-width: 992px) {
   .custom-nav .navbar .container .left-button {
-    margin-right: 190px !important;
+    /* margin-right: 190px !important; */
+    margin-right: 107px !important;
   }
 }
 

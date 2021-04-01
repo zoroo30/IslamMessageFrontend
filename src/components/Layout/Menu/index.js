@@ -39,14 +39,14 @@ function Menu() {
                 variant="outline-light"
                 className="mr-1 d-none d-none d-sm-inline-block"
               >
-                <span className="d-none d-lg-block">create new account</span>
-                <span className="d-lg-none">register</span>
+                {/* <span className="d-none d-lg-block">create new account</span> */}
+                <span>Register</span>
               </Button>
               <Button
                 variant="light"
                 className="mr-1 d-none d-none d-sm-inline-block"
               >
-                login
+                Login
               </Button>
               <Navbar.Toggle ref={toggler} aria-controls="basic-navbar-nav" />
             </div>
